@@ -190,6 +190,7 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
             msg += f"\n{get_progress_bar_string(progress)} {progress}"
             msg += f"\n<b>Processed:</b> {task.processed_bytes()} of {task.size()}"
             msg += f"\n<b>Speed:</b> {task.speed()} | <b>ETA:</b> {task.eta()}"
+            msg += f"\n<b>User:</b> {task.listener.message.from_user.mention(style='html')} | <b>ID:</b> <code>{task.listener.message.from_user.id}</code>"
             if hasattr(task, "seeders_num"):
                 try:
                     msg += f"\n<b>Seeders:</b> {task.seeders_num()} | <b>Leechers:</b> {task.leechers_num()}"
